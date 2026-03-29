@@ -1,6 +1,6 @@
 """
-KAI Server - FastAPI Application
-Runs on your Mac/PC/NAS to provide LLM capabilities to KAI client
+AEROMADDY Server - FastAPI Application
+Runs on your Mac/PC/NAS to provide LLM capabilities to AEROMADDY client
 """
 
 import os
@@ -24,7 +24,7 @@ structlog.configure(
         structlog.stdlib.add_logger_name,
         structlog.stdlib.add_log_level,
         structlog.processors.TimeStamper(fmt="iso"),
-        structlog.processors.JSONRenderer()
+        structlog.processors.JSONRenderer(),
     ],
     context_class=dict,
     logger_factory=structlog.stdlib.LoggerFactory(),
@@ -33,9 +33,9 @@ structlog.configure(
 logger = structlog.get_logger()
 
 app = FastAPI(
-    title="KAI API Server",
-    description="Backend API for KAI AI Companion",
-    version="1.0.0"
+    title="AEROMADDY API Server",
+    description="Backend API for AEROMADDY AI Companion",
+    version="1.0.0",
 )
 
 app.add_middleware(
@@ -58,40 +58,36 @@ memory_service = None
 @app.on_event("startup")
 async def startup_event():
     global llm_service, memory_service
-    
-    logger.info("Starting KAI server...")
-    
-    config_path = Path(__file__).parent.parent / "config" / "config.yaml"
+
+    logger.info("Starting AEROMADDY server...")
+
+    config_path = Path(__file__).parent.parent / "config" / "aeromaddy.yaml"
     with open(config_path) as f:
         config = yaml.safe_load(f)
-    
+
     llm_service = LLMService(config)
     await llm_service.initialize()
-    
-    if config.get('memory', {}).get('enabled', True):
+
+    if config.get("memory", {}).get("enabled", True):
         memory_service = MemoryService(config)
         await memory_service.initialize()
-    
-    logger.info("KAI server started successfully")
+
+    logger.info("AEROMADDY server started successfully")
 
 
 @app.on_event("shutdown")
 async def shutdown_event():
-    logger.info("Shutting down KAI server...")
+    logger.info("Shutting down AEROMADDY server...")
     if llm_service:
         await llm_service.close()
     if memory_service:
         await memory_service.close()
-    logger.info("KAI server shut down complete")
+    logger.info("AEROMADDY server shut down complete")
 
 
 @app.get("/")
 async def root():
-    return {
-        "name": "KAI API Server",
-        "version": "1.0.0",
-        "status": "running"
-    }
+    return {"name": "AEROMADDY API Server", "version": "1.0.0", "status": "running"}
 
 
 @app.get("/health")
@@ -99,7 +95,7 @@ async def health_check():
     return {
         "status": "healthy",
         "llm_service": "ready" if llm_service else "not_initialized",
-        "memory_service": "ready" if memory_service else "not_initialized"
+        "memory_service": "ready" if memory_service else "not_initialized",
     }
 
 

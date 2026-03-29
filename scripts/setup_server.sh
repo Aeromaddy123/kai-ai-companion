@@ -3,7 +3,7 @@
 set -e
 
 echo "============================================"
-echo "  KAI Server Setup Script (macOS/Linux)"
+echo "  AEROMADDY Server Setup Script (macOS/Linux)"
 echo "============================================"
 
 echo ""
@@ -57,6 +57,6 @@ echo ""
 echo "Or with auto-reload for development:"
 echo "  uvicorn main:app --reload --host 0.0.0.0 --port 8000"
 echo ""
-echo "Make sure to update config/config.yaml with your server IP"
+echo "Make sure to update config/aeromaddy.yaml with your server IP"
 echo "when configuring the Raspberry Pi client."
 echo ""

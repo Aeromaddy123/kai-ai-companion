@@ -1,8 +1,10 @@
-# 🤖 KAI - Your Private AI Home Companion
+# 🤖 AEROMADDY - Your Private AI Home Companion
 
 <div align="center">
 
-**K**eepers **A**rtificial **I**ntelligence - A privacy-first, voice & vision-enabled AI companion
+**A**rtificial **E**nvironment **R**obot with **O**mnidirectional **M**ultimodal **A**ssistant for **D**aily **Y**ield - A privacy-first, voice & vision-enabled AI companion
+
+*Built and maintained by [@Aeromaddy123](https://github.com/Aeromaddy123)*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
@@ -26,7 +28,7 @@
 ### Technical Highlights
 - **8B Parameter LLM** - Running Qwen 2.5 on local hardware
 - **On-Device STT** - Vosk speech recognition (no cloud dependency)
-- **Wake Word Detection** - "Hey KAI" activation
+- **Wake Word Detection** - "Hey AEROMADDY" activation
 - **Multimodal AI** - LLaVA for image understanding
 - **Vector Memory** - ChromaDB for semantic memory storage
 
@@ -36,7 +38,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         KAI SYSTEM                                 │
+│                         AEROMADDY SYSTEM                                 │
 │                                                                     │
 │  ┌──────────────────┐        WiFi         ┌──────────────────────┐ │
 │  │   RASPBERRY PI   │                    │    LOCAL SERVER       │ │
@@ -56,7 +58,7 @@
 │  │  └────────────┘  │                    │  └────────────────┘  │ │
 │  │                  │                    │  ┌────────────────┐  │ │
 │  │  ┌────────────┐  │                    │  │  ChromaDB     │  │ │
-│  │  │  KAI       │  │                    │  │  (Memory)      │  │ │
+│  │  │  AEROMADDY       │  │                    │  │  (Memory)      │  │ │
 │  │  │  Client    │  │                    │  └────────────────┘  │ │
 │  │  └────────────┘  │                    │                      │ │
 │  │                  │                    │                      │ │
@@ -103,8 +105,8 @@
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/kai-ai-companion.git
-cd kai-ai-companion
+git clone https://github.com/YOUR_USERNAME/aeromaddy-ai-companion.git
+cd aeromaddy-ai-companion
 ```
 
 ### Step 2: Server Setup (macOS)
@@ -132,9 +134,9 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 chmod +x scripts/setup_rpi.sh
 ./scripts/setup_rpi.sh
 
-# Configure server IP in config/config.yaml
-# Start KAI client
-python rpi/kai.py
+# Configure server IP in config/aeromaddy.yaml
+# Start AEROMADDY client
+python rpi/aeromaddy.py
 ```
 
 ---
@@ -142,14 +144,14 @@ python rpi/kai.py
 ## 📁 Project Structure
 
 ```
-kai/
+aeromaddy/
 ├── README.md                 # This file
 ├── LICENSE                   # MIT License
 ├── requirements.txt          # Python dependencies
 ├── config/
 │   └── config.yaml          # Configuration file
 ├── rpi/                     # Raspberry Pi client
-│   ├── kai.py              # Main client entry
+│   ├── aeromaddy.py              # Main client entry
 │   ├── audio/
 │   │   ├── listener.py     # Microphone input
 │   │   ├── wakeword.py     # Wake word detection
@@ -192,26 +194,26 @@ kai/
 
 ### Voice Mode
 ```
-User: "Hey KAI, what's the weather like today?"
-KAI:  "Based on the time of year and typical patterns, it should be 
+User: "Hey AEROMADDY, what's the weather like today?"
+AEROMADDY:  "Based on the time of year and typical patterns, it should be 
        pleasant. Would you like me to check a weather service?"
 ```
 
 ### Vision Mode
 ```
-User: "Hey KAI, what do you see?"
-KAI:  "I can see a living room with a comfortable couch, a coffee 
+User: "Hey AEROMADDY, what do you see?"
+AEROMADDY:  "I can see a living room with a comfortable couch, a coffee 
        table with some books, and large windows letting in natural light."
 ```
 
 ### Memory Mode
 ```
-User: "Hey KAI, remember where I put my keys?"
-KAI:  "I'll remember that. You last told me you put your keys on the 
+User: "Hey AEROMADDY, remember where I put my keys?"
+AEROMADDY:  "I'll remember that. You last told me you put your keys on the 
        kitchen counter near the fruit bowl."
 
-User: "Hey KAI, where are my keys?"
-KAI:  "You told me earlier that you put your keys on the kitchen 
+User: "Hey AEROMADDY, where are my keys?"
+AEROMADDY:  "You told me earlier that you put your keys on the kitchen 
        counter near the fruit bowl."
 ```
 
@@ -219,7 +221,7 @@ KAI:  "You told me earlier that you put your keys on the kitchen
 
 ## ⚙️ Configuration
 
-Edit `config/config.yaml` to customize KAI:
+Edit `config/aeromaddy.yaml` to customize AEROMADDY:
 
 ```yaml
 server:
@@ -227,9 +229,9 @@ server:
   port: 8000
   protocol: "http"
 
-kai:
-  name: "KAI"
-  wake_word: "hey kai"
+aeromaddy:
+  name: "AEROMADDY"
+  wake_word: "hey aeromaddy"
   voice: "default"
   language: "en"
 
@@ -255,7 +257,7 @@ memory:
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `POST /chat` | Chat with KAI | Send text, receive response |
+| `POST /chat` | Chat with AEROMADDY | Send text, receive response |
 | `POST /vision/describe` | Describe image | Get image description |
 | `POST /vision/chat` | Vision Q&A | Ask questions about images |
 | `POST /tts` | Text-to-Speech | Convert text to audio |
@@ -331,6 +333,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+**Created and maintained by [@Aeromaddy123](https://github.com/Aeromaddy123)**
+
 - **Qwen Team** for the excellent Qwen 2.5 model
 - **LLaVA Team** for multimodal vision capabilities
 - **Alphacephei** for Vosk offline STT
@@ -341,7 +345,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ for privacy-conscious AI enthusiasts**
+**Made with ❤️ by Aeromaddy123 for privacy-conscious AI enthusiasts**
 
 *"Your AI companion, running locally, respecting your privacy."*
 

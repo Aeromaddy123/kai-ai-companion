@@ -11,7 +11,7 @@ class TTSService:
     def __init__(self, config: dict):
         self.config = config
         self.voices_dir = Path("voices")
-        self.default_voice = config.get('kai', {}).get('voice', 'default')
+        self.default_voice = config.get('aeromaddy', {}).get('voice', 'default')
         self._initialized = False
 
     async def initialize(self):

@@ -9,7 +9,7 @@ def setup_logging(config: dict) -> structlog.BoundLogger:
     log_config = config.get('logging', {})
     level = log_config.get('level', 'INFO')
     log_format = log_config.get('format', '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    log_file = log_config.get('file', 'logs/kai.log')
+    log_file = log_config.get('file', 'logs/aeromaddy.log')
     
     logging.basicConfig(
         level=getattr(logging, level.upper()),
@@ -43,4 +43,4 @@ def setup_logging(config: dict) -> structlog.BoundLogger:
         cache_logger_on_first_use=True,
     )
     
-    return structlog.get_logger("kai")
+    return structlog.get_logger("aeromaddy")

@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 - GitHub Actions CI/CD
 
 ### Features
-- "Hey KAI" wake word activation
+- "Hey AEROMADDY" wake word activation
 - Voice-to-voice conversations
 - Image description and vision Q&A
 - Semantic memory search

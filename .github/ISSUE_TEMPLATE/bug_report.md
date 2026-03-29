@@ -24,7 +24,7 @@ What actually happened.
 ## Environment
 - OS: [e.g., macOS, Raspberry Pi OS]
 - Python version: [e.g., 3.9.0]
-- KAI version: [e.g., 1.0.0]
+- AEROMADDY version: [e.g., 1.0.0]
 
 ## Logs
 Any relevant log output.

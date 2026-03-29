@@ -1,14 +1,14 @@
-# KAI Architecture Documentation
+# AEROMADDY Architecture Documentation
 
 ## System Overview
 
-KAI (Keepers Artificial Intelligence) is a privacy-focused AI home companion that runs an 8B parameter language model locally. The system is designed with a client-server architecture where the Raspberry Pi handles edge processing (audio input, wake word detection, STT) while the more computationally intensive tasks (LLM inference, vision processing, TTS) run on a more powerful local server.
+AEROMADDY (Keepers Artificial Intelligence) is a privacy-focused AI home companion that runs an 8B parameter language model locally. The system is designed with a client-server architecture where the Raspberry Pi handles edge processing (audio input, wake word detection, STT) while the more computationally intensive tasks (LLM inference, vision processing, TTS) run on a more powerful local server.
 
 ## Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         KAI SYSTEM                                 │
+│                         AEROMADDY SYSTEM                                 │
 │                                                                     │
 │  ┌──────────────────┐        WiFi         ┌──────────────────────┐ │
 │  │   RASPBERRY PI   │                    │    LOCAL SERVER       │ │
@@ -27,7 +27,7 @@ KAI (Keepers Artificial Intelligence) is a privacy-focused AI home companion tha
 │  │  └────────────┘  │                    │  └────────────────┘  │ │
 │  │                  │                    │  ┌────────────────┐  │ │
 │  │  ┌────────────┐  │                    │  │  ChromaDB     │  │ │
-│  │  │  KAI       │  │                    │  │  (Memory)      │  │ │
+│  │  │  AEROMADDY       │  │                    │  │  (Memory)      │  │ │
 │  │  │  Client    │  │                    │  └────────────────┘  │ │
 │  │  └────────────┘  │                    │                      │ │
 │  │                  │                    │                      │ │
@@ -52,7 +52,7 @@ The client runs on a Raspberry Pi (4 or 5 recommended) and handles:
    - Handles audio streaming to server
 
 2. **Wake Word Detection (wakeword.py)**
-   - Listens for "Hey KAI" trigger
+   - Listens for "Hey AEROMADDY" trigger
    - Uses SpeechBrain or Picovoice Porcupine
    - Runs continuously in background
 
@@ -148,7 +148,7 @@ The server runs on a more powerful machine (Mac, PC, or NAS) and provides:
 
 ## Scalability
 
-- Multiple KAI clients can connect to one server
+- Multiple AEROMADDY clients can connect to one server
 - ChromaDB can be moved to dedicated vector DB
 - TTS can be distributed to reduce latency
 - LLM can be upgraded to larger models

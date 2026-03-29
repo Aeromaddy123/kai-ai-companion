@@ -1,4 +1,4 @@
-# KAI API Documentation
+# AEROMADDY API Documentation
 
 ## Base URL
 
@@ -27,7 +27,7 @@ Check if the server is running and healthy.
 
 ### Chat
 
-Send a text message and receive a response from KAI.
+Send a text message and receive a response from AEROMADDY.
 
 **Endpoint:** `POST /chat`
 
@@ -109,7 +109,7 @@ Convert text to speech and receive audio.
 **Request Body:**
 ```json
 {
-  "text": "Hello! This is KAI speaking.",
+  "text": "Hello! This is AEROMADDY speaking.",
   "voice": "default"
 }
 ```
@@ -203,7 +203,7 @@ Get memory statistics.
 {
   "total_memories": 42,
   "max_memories": 1000,
-  "collection_name": "kai_memories"
+  "collection_name": "aeromaddy_memories"
 }
 ```
 

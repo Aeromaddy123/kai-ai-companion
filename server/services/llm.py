@@ -54,8 +54,8 @@ class LLMService:
         
         messages = context or []
         
-        system_prompt = self.config['kai'].get('system_prompt', 
-            "You are KAI, a friendly and helpful AI home companion. Be conversational.")
+        system_prompt = self.config['aeromaddy'].get('system_prompt', 
+            "You are AEROMADDY, a friendly and helpful AI home companion. Be conversational.")
         
         full_messages = [
             {"role": "system", "content": system_prompt}
@@ -90,8 +90,8 @@ class LLMService:
         
         messages = context or []
         
-        system_prompt = self.config['kai'].get('system_prompt', 
-            "You are KAI, a friendly and helpful AI home companion.")
+        system_prompt = self.config['aeromaddy'].get('system_prompt', 
+            "You are AEROMADDY, a friendly and helpful AI home companion.")
         
         full_messages = [
             {"role": "system", "content": system_prompt}

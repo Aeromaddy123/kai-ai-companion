@@ -3,7 +3,7 @@
 set -e
 
 echo "============================================"
-echo "  KAI Raspberry Pi Setup Script"
+echo "  AEROMADDY Raspberry Pi Setup Script"
 echo "============================================"
 
 echo ""
@@ -91,11 +91,11 @@ echo "============================================"
 echo "  Raspberry Pi Setup Complete!"
 echo "============================================"
 echo ""
-echo "1. Edit config/config.yaml and set your server IP"
+echo "1. Edit config/aeromaddy.yaml and set your server IP"
 echo ""
-echo "2. To run KAI:"
+echo "2. To run AEROMADDY:"
 echo "   source venv/bin/activate"
-echo "   python rpi/kai.py"
+echo "   python rpi/aeromaddy.py"
 echo ""
 echo "3. For audio testing:"
 echo "   python -c 'import pyaudio; p = pyaudio.PyAudio(); print(p.get_device_count())'"

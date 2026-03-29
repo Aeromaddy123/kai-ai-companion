@@ -1,4 +1,4 @@
-# KAI Troubleshooting Guide
+# AEROMADDY Troubleshooting Guide
 
 ## Common Issues
 
@@ -191,4 +191,4 @@ gpu_freq=700
 If you encounter issues not covered here:
 1. Check the GitHub Issues page
 2. Enable debug logging in config.yaml
-3. Check logs in logs/kai.log
+3. Check logs in logs/aeromaddy.log

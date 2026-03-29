@@ -1,6 +1,8 @@
-# Contributing to KAI
+# Contributing to AEROMADDY
 
-Thank you for your interest in contributing to KAI!
+Thank you for your interest in contributing to AEROMADDY!
+
+**Maintained by [@Aeromaddy123](https://github.com/Aeromaddy123)**
 
 ## Development Process
 

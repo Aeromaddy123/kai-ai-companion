@@ -9,7 +9,7 @@ logger = structlog.get_logger()
 class MemoryService:
     def __init__(self, config: dict):
         self.config = config['memory']
-        self.collection_name = self.config.get('collection_name', 'kai_memories')
+        self.collection_name = self.config.get('collection_name', 'aeromaddy_memories')
         self.max_memories = self.config.get('max_memories', 1000)
         self.similarity_threshold = self.config.get('similarity_threshold', 0.7)
         self.persist_directory = Path(self.config.get('persist_directory', './data/chroma'))
@@ -35,7 +35,7 @@ class MemoryService:
             except:
                 self._collection = self._client.create_collection(
                     name=self.collection_name,
-                    metadata={"description": "KAI's persistent memories"}
+                    metadata={"description": "AEROMADDY's persistent memories"}
                 )
                 logger.info(f"Created new memory collection: {self.collection_name}")
             

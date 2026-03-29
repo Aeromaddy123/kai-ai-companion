@@ -3,13 +3,13 @@ server:
   port: 8000
   protocol: "http"
 
-kai:
-  name: "KAI"
-  wake_word: "hey kai"
+aeromaddy:
+  name: "AEROMADDY"
+  wake_word: "hey aeromaddy"
   voice: "default"
   language: "en"
   system_prompt: |
-    You are KAI, a friendly and helpful AI home companion.
+    You are AEROMADDY, a friendly and helpful AI home companion.
     You are running on a Raspberry Pi with vision and voice capabilities.
     You are privacy-focused and all processing happens locally.
     Be conversational, helpful, and slightly playful in your responses.
@@ -36,10 +36,10 @@ memory:
   enabled: true
   max_memories: 1000
   similarity_threshold: 0.7
-  collection_name: "kai_memories"
+  collection_name: "aeromaddy_memories"
   persist_directory: "./data/chroma"
 
 logging:
   level: "INFO"
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-  file: "logs/kai.log"
+  file: "logs/aeromaddy.log"

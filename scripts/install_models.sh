@@ -3,7 +3,7 @@
 set -e
 
 echo "============================================"
-echo "  KAI Model Downloader"
+echo "  AEROMADDY Model Downloader"
 echo "============================================"
 
 echo ""

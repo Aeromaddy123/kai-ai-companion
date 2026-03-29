@@ -9,7 +9,7 @@ logger = structlog.get_logger()
 class WakeWordDetector:
     def __init__(self, config: dict):
         self.config = config
-        self.wake_word = config['kai']['wake_word'].lower()
+        self.wake_word = config['aeromaddy']['wake_word'].lower()
         self._is_available = False
         self._detection_task = None
         
@@ -30,7 +30,7 @@ class WakeWordDetector:
                 if access_key:
                     self.porcupine_handle = Porcupine(
                         access_key=access_key,
-                        keyword_paths=[f'models/hey-kai.ppn']
+                        keyword_paths=[f'models/hey-aeromaddy.ppn']
                     )
                     self._is_available = True
                 else:

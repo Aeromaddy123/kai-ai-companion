@@ -1,6 +1,6 @@
-# KAI Setup Guide for macOS
+# AEROMADDY Setup Guide for macOS
 
-This guide will help you set up the KAI server on your Mac.
+This guide will help you set up the AEROMADDY server on your Mac.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ ollama pull llava:1.5
 
 ```bash
 # Navigate to project
-cd kai
+cd aeromaddy
 
 # Create virtual environment (recommended)
 python3 -m venv venv
@@ -96,7 +96,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ### As a Background Service:
 
-Create a plist file at `~/Library/LaunchAgents/com.kai.server.plist`:
+Create a plist file at `~/Library/LaunchAgents/com.aeromaddy.server.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -104,10 +104,10 @@ Create a plist file at `~/Library/LaunchAgents/com.kai.server.plist`:
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.kai.server</string>
+    <string>com.aeromaddy.server</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/YOUR_USERNAME/kai/venv/bin/uvicorn</string>
+        <string>/Users/YOUR_USERNAME/aeromaddy/venv/bin/uvicorn</string>
         <string>main:app</string>
         <string>--host</string>
         <string>0.0.0.0</string>
@@ -115,7 +115,7 @@ Create a plist file at `~/Library/LaunchAgents/com.kai.server.plist`:
         <string>8000</string>
     </array>
     <key>WorkingDirectory</key>
-    <string>/Users/YOUR_USERNAME/kai/server</string>
+    <string>/Users/YOUR_USERNAME/aeromaddy/server</string>
     <key>RunAtLoad</key>
     <true/>
 </dict>
@@ -124,7 +124,7 @@ Create a plist file at `~/Library/LaunchAgents/com.kai.server.plist`:
 
 Then load it:
 ```bash
-launchctl load ~/Library/LaunchAgents/com.kai.server.plist
+launchctl load ~/Library/LaunchAgents/com.aeromaddy.server.plist
 ```
 
 ## Step 7: Verify Server is Running
@@ -151,7 +151,7 @@ curl -X POST http://localhost:8000/chat \
 If you want to access from other devices:
 ```bash
 # Allow incoming connections on port 8000
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addapp=/Users/YOUR_USERNAME/kai/venv/bin/python3.11
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --addapp=/Users/YOUR_USERNAME/aeromaddy/venv/bin/python3.11
 ```
 
 ## Troubleshooting
