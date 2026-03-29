@@ -1,0 +1,45 @@
+server:
+  host: "192.168.1.100"
+  port: 8000
+  protocol: "http"
+
+kai:
+  name: "KAI"
+  wake_word: "hey kai"
+  voice: "default"
+  language: "en"
+  system_prompt: |
+    You are KAI, a friendly and helpful AI home companion.
+    You are running on a Raspberry Pi with vision and voice capabilities.
+    You are privacy-focused and all processing happens locally.
+    Be conversational, helpful, and slightly playful in your responses.
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 1024
+  mic_index: null
+  speaker_index: null
+  vad_threshold: 0.5
+  silence_timeout: 2.0
+
+vision:
+  enabled: true
+  stream_fps: 5
+  capture_on_request: true
+  resolution:
+    width: 640
+    height: 480
+  camera_index: 0
+
+memory:
+  enabled: true
+  max_memories: 1000
+  similarity_threshold: 0.7
+  collection_name: "kai_memories"
+  persist_directory: "./data/chroma"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/kai.log"
