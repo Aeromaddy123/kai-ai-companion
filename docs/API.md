@@ -1,224 +1,44 @@
-# AEROMADDY API Documentation
+# API Reference
 
 ## Base URL
-
 ```
 http://localhost:8000
 ```
 
 ## Endpoints
 
-### Health Check
+### GET /health
+Check if server is running.
 
-Check if the server is running and healthy.
-
-**Endpoint:** `GET /health`
-
-**Response:**
+### POST /chat
+Send a message and get a response.
 ```json
-{
-  "status": "healthy",
-  "llm_service": "ready",
-  "memory_service": "ready"
-}
+{"text": "Hello"}
 ```
 
----
-
-### Chat
-
-Send a text message and receive a response from AEROMADDY.
-
-**Endpoint:** `POST /chat`
-
-**Request Body:**
+### POST /vision/describe
+Describe an image.
 ```json
-{
-  "text": "Hello, how are you?",
-  "context": [
-    {"role": "user", "content": "Previous message"},
-    {"role": "assistant", "content": "Previous response"}
-  ],
-  "stream": false
-}
+{"image_base64": "..."}
 ```
 
-**Response:**
+### POST /vision/chat
+Ask something about an image.
 ```json
-{
-  "response": "Hello! I'm doing well, thank you for asking. How can I help you today?",
-  "model": "qwen2.5:8b"
-}
+{"image_base64": "...", "question": "What's in this image?"}
 ```
 
-**Streaming Response:** Set `stream: true` for Server-Sent Events (SSE).
+### POST /tts
+Convert text to speech. Returns audio.
 
----
-
-### Vision - Describe Image
-
-Get a description of an image.
-
-**Endpoint:** `POST /vision/describe`
-
-**Request Body:**
+### POST /memory/add
+Store something in memory.
 ```json
-{
-  "image_base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-}
+{"text": "Remember that..."}
 ```
 
-**Response:**
+### POST /memory/search
+Search your memory.
 ```json
-{
-  "description": "A living room with a comfortable gray couch, wooden coffee table, and large windows letting in natural light."
-}
+{"query": "what did I say about..."}
 ```
-
----
-
-### Vision - Chat with Image
-
-Ask a question about an image.
-
-**Endpoint:** `POST /vision/chat`
-
-**Request Body:**
-```json
-{
-  "image_base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-  "question": "What color is the couch?"
-}
-```
-
-**Response:**
-```json
-{
-  "response": "The couch is gray in color."
-}
-```
-
----
-
-### Text-to-Speech
-
-Convert text to speech and receive audio.
-
-**Endpoint:** `POST /tts`
-
-**Request Body:**
-```json
-{
-  "text": "Hello! This is AEROMADDY speaking.",
-  "voice": "default"
-}
-```
-
-**Response:** Audio file (WAV format)
-
----
-
-### Memory - Add
-
-Store a new memory.
-
-**Endpoint:** `POST /memory/add`
-
-**Request Body:**
-```json
-{
-  "text": "User keeps their keys on the kitchen counter",
-  "metadata": {
-    "category": "personal",
-    "created_at": "2024-01-15T10:30:00Z"
-  }
-}
-```
-
-**Response:**
-```json
-{
-  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "success": true
-}
-```
-
----
-
-### Memory - Search
-
-Search for relevant memories.
-
-**Endpoint:** `POST /memory/search`
-
-**Request Body:**
-```json
-{
-  "query": "where did I put my keys",
-  "k": 5
-}
-```
-
-**Response:**
-```json
-{
-  "results": [
-    {
-      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-      "text": "User keeps their keys on the kitchen counter",
-      "score": 0.92,
-      "metadata": {
-        "category": "personal"
-      }
-    }
-  ]
-}
-```
-
----
-
-### Memory - Delete
-
-Delete a specific memory.
-
-**Endpoint:** `DELETE /memory/{memory_id}`
-
-**Response:**
-```json
-{
-  "success": true
-}
-```
-
----
-
-### Memory - Stats
-
-Get memory statistics.
-
-**Endpoint:** `GET /memory/stats`
-
-**Response:**
-```json
-{
-  "total_memories": 42,
-  "max_memories": 1000,
-  "collection_name": "aeromaddy_memories"
-}
-```
-
-## Error Responses
-
-All endpoints may return error responses:
-
-```json
-{
-  "detail": "Error message description"
-}
-```
-
-Common HTTP status codes:
-- `200` - Success
-- `400` - Bad Request
-- `500` - Internal Server Error
-- `503` - Service Unavailable
